@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#Usage: ./decode.sh <number of times to decode>
+
+counter=$(expr $1 - 1)
+
+tmp=$(cat b64.txt | base64 -d)
+
+for i in `seq 1 $counter`
+do
+        tmp=$(echo $tmp | base64 -d)
+done
+
+echo $tmp
